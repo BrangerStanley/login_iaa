@@ -1,0 +1,35 @@
+services:
+  app:
+    build: .
+    container_name: login_iaa_app
+    ports:
+      - "8080:80"
+    volumes:
+      # Montaje para desarrollo. En producción, copia el código en la imagen y quita este volumen.
+      - .:/var/www/html
+    environment:
+      # Base de datos (apunta al servicio db)
+      IAA_DB_HOST: db
+      IAA_DB_PORT: 5432
+      IAA_DB_USER: login_demo
+      IAA_DB_PASS: cambia_esta_clave
+      IAA_DB_NAME: login_demo
+      IAA_DB_SSLMODE: disable
+      IAA_FORZAR_HTTPS: "0"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:16
+    container_name: login_iaa_db
+    environment:
+      POSTGRES_DB: login_demo
+      POSTGRES_USER: login_demo
+      POSTGRES_PASSWORD: cambia_esta_clave
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

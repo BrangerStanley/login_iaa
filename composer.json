@@ -1,0 +1,24 @@
+{
+    "name": "iaa/login-seguro",
+    "description": "Login y registro del sistema IAA: PHP 8.2+ y PostgreSQL, captcha, CSRF, bloqueo progresivo y bitácora de accesos.",
+    "type": "project",
+    "require": {
+        "php": ">=8.2",
+        "ext-pdo": "*",
+        "ext-pdo_pgsql": "*",
+        "ext-gd": "*",
+        "ext-mbstring": "*"
+    },
+    "scripts": {
+        "serve": "php -S localhost:8000 router.php",
+        "db:install": "php database/instalar.php",
+        "user:create": "php scripts/crear_usuario.php",
+        "lint": "php scripts/lint.php",
+        "check": [
+            "@lint"
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true
+    }
+}

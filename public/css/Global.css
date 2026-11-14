@@ -1,0 +1,89 @@
+:root {
+  /* === Tokens de diseño IAA IUTY ===
+     Copia de views/css/Global.css: las páginas públicas (login, validación,
+     registro) también necesitan estas variables. Sin ellas, var(--brand) y
+     var(--text) quedaban sin valor y varios textos salían invisibles. */
+  --iaa-primary: #3678a8;
+  --iaa-primary-dark: #2b4f6f;
+  --iaa-primary-deep: #213b55;
+  --iaa-accent: #6aaed6;
+  --iaa-danger: #dc3545;
+  --iaa-success: #198754;
+  --iaa-warning: #ffc107;
+  --iaa-warning-text: #6b4b00;
+  --iaa-info: #0dcaf0;
+
+  --iaa-bg: #edf2f6;
+  --iaa-surface: #f8fafc;
+  --iaa-border: #d5dfe8;
+  --iaa-text: #344256;
+  --iaa-text-muted: #5c6c7d;
+
+  --iaa-radius-sm: 4px;
+  --iaa-radius: 8px;
+  --iaa-radius-lg: 12px;
+
+  --iaa-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --iaa-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --iaa-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+  --iaa-space-1: 0.25rem;
+  --iaa-space-2: 0.5rem;
+  --iaa-space-3: 0.75rem;
+  --iaa-space-4: 1rem;
+  --iaa-space-5: 1.5rem;
+  --iaa-space-6: 2rem;
+
+  --iaa-font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Compatibilidad con las variables legacy ya usadas en el CSS */
+  --background: var(--iaa-surface);
+  --buttons-selected: var(--iaa-primary);
+  --buttons-selected-hover: var(--iaa-primary-deep);
+  --border: var(--iaa-border);
+  --text: var(--iaa-text);
+  --brand: var(--iaa-primary);
+  --dark: var(--iaa-primary-dark);
+  --shadow: var(--iaa-shadow);
+}
+
+body {
+  color: var(--iaa-text);
+}
+
+body.bg-light {
+  background-color: var(--iaa-bg) !important;
+}
+
+body .bg-white,
+body .card:not([class*="bg-"]),
+body .card-body:not([class*="bg-"]),
+body .card-formulario,
+body .modal-content {
+  background-color: var(--iaa-surface) !important;
+}
+
+body input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]),
+body select,
+body textarea,
+body .form-control,
+body .form-select {
+  background-color: #f1f7fb !important;
+  border-color: #cbd9e5 !important;
+  color: var(--iaa-text);
+}
+
+body input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]):focus,
+body select:focus,
+body textarea:focus,
+body .form-control:focus,
+body .form-select:focus {
+  background-color: #f8fbfe !important;
+  border-color: var(--iaa-accent) !important;
+  box-shadow: 0 0 0 0.2rem rgba(106, 174, 214, 0.2) !important;
+}
+
+body input[type="checkbox"],
+body input[type="radio"] {
+  accent-color: var(--iaa-primary) !important;
+}
